@@ -29,7 +29,7 @@ void employeeInput()
 {
 	
 	printf("\tEnter Employee Number: ");
-	scanf("%u", &employeeNumber);
+	scanf("%d", &employeeNumber);
 	if (employeeNumber <= 0)
 	{
 		printf("\n\tThis is not a valid Employee Number.\n\tPlease run the program again\n\n");
@@ -39,7 +39,7 @@ void employeeInput()
 		
 	
 	printf("\tEnter Hourly Salary: ");
-	scanf("%u", &hourlySalary);
+	scanf("%d", &hourlySalary);
 	if (hourlySalary <= 0)
 	{
 		printf("\n\tThis is not a valid Hourly Salary.\n\tPlease run the program again\n\n");
@@ -49,7 +49,7 @@ void employeeInput()
 
 	
 	printf("\tEnter Weekly Time: ");
-	scanf("%u", &weeklyTime);
+	scanf("%d", &weeklyTime);
 	if (weeklyTime < 0)
 	{
 		printf("\n\tThis is not a valid Weekly Time.\n\tPlease run the program again\n\n");
@@ -63,7 +63,7 @@ void employeeInput()
 void paycheckCalculator()
 {
 	printf("\tEmployee #: ");
-	printf("%u\n", employeeNumber);
+	printf("%d\n", employeeNumber);
 
 	printf("\tHourly Salary: ");
 	printf("$%.1f\n", (float)hourlySalary);
