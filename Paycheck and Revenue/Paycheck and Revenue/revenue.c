@@ -4,6 +4,7 @@
 void fWelcome();
 void fItemInputs();
 void fOutput();
+void fGoodbye();
 int nPrice;
 int nQuantity;
 
@@ -23,9 +24,21 @@ void fItemInputs()
 {
     printf("\tEnter item price: ");
     scanf("%d", &nPrice);
+    if (nPrice <= 0)
+    {
+        printf("\tThis is not a valid item price.\nPlease run the program again");
+        goodbye();
+        exit(0);
+    }
 
     printf("\tEnter quantity: ");
-    scanf("%d", &nQuantity)
+    scanf("%d", &nQuantity);
+    if (nQuantity >= 0)
+    {
+        printf("\tThis is not a valid quantity order.\nPlease run the program again");
+        goodbye();
+        exit(0);
+    }
 
 }
 
@@ -58,6 +71,10 @@ void fOutput()
     printf("\tThe discount amount is: %.1f\n", (nDiscount * 100));
 
     
-    printf("\nThe total discount is")
+    printf("\nThe total is %.1f\n", (nCost - nDiscount));
 }
 
+void fGoodbye()
+{
+    puts("Thank you for using \"Temple\" store\n");
+}

@@ -18,5 +18,8 @@
     <ClCompile Include="paycheck.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="revenue.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
