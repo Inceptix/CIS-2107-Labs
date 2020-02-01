@@ -11,13 +11,14 @@ int employeeNumber = 0;
 int hourlySalary = 0;
 int weeklyTime = 0;
 
-int main()
+int smain()
 {
 
 	welcome();
 	employeeInput();
 	paycheckCalculator();
 	goodbye();
+	exit(0);
 }
 
 void welcome()

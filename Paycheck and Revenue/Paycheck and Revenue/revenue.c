@@ -12,7 +12,10 @@ int nQuantity;
 int main()
 {
     fWelcome();
-
+    fItemInputs();
+    fOutput();
+    fGoodbye();
+    exit(0);
 }
 
 void fWelcome()
@@ -26,17 +29,17 @@ void fItemInputs()
     scanf("%d", &nPrice);
     if (nPrice <= 0)
     {
-        printf("\tThis is not a valid item price.\nPlease run the program again");
-        goodbye();
+        printf("\n\tThis is not a valid item price.\n\tPlease run the program again\n");
+        fGoodbye();
         exit(0);
     }
 
     printf("\tEnter quantity: ");
     scanf("%d", &nQuantity);
-    if (nQuantity >= 0)
+    if (nQuantity <= 0)
     {
-        printf("\tThis is not a valid quantity order.\nPlease run the program again");
-        goodbye();
+        printf("\n\tThis is not a valid quantity order.\n\tPlease run the program again\n");
+        fGoodbye();
         exit(0);
     }
 
@@ -44,16 +47,16 @@ void fItemInputs()
 
 void fOutput()
 {
-    unsigned int nCost = nPrice + nQuantity;
-    double nDiscount;
+    unsigned int nCost = nPrice * nQuantity;
+    float nDiscount;
 
-    printf("\tThe item price is: $%d\n", nPrice);
+    printf("\n\tThe item price is: $%.1f\n", (float)nPrice);
     printf("\tThe order is: %d item(s)\n", nQuantity);
-    printf("\tThe cost is: $%d\n", nCost);
+    printf("\tThe cost is: $%.1f\n", (float)(nCost));
     
     if (nQuantity >= 1 && nQuantity <= 49)
     {
-        nDiscount = 1;
+        nDiscount = 0;
     }
     else if (nQuantity >= 50 && nQuantity <= 99)
     {
@@ -68,13 +71,18 @@ void fOutput()
         nDiscount = 0.25;
     }
 
-    printf("\tThe discount amount is: %.1f\n", (nDiscount * 100));
+    printf("\tThe discount is: %.1f%%\n", (nDiscount * 100.0f));
 
     
-    printf("\nThe total is %.1f\n", (nCost - nDiscount));
+    float nDiscountTotal = ((nDiscount * ((float)(nPrice))) * nQuantity);
+    printf("\tThe discount amount is: $%.1f\n", (nDiscountTotal));
+
+    float nTotal = nCost - nDiscountTotal;
+    printf("\tThe total is $%.1f\n", (nTotal));
+
 }
 
 void fGoodbye()
 {
-    puts("Thank you for using \"Temple\" store\n");
+    puts("\nThank You for using \"Temple\" store\n");
 }
