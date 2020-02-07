@@ -19,7 +19,7 @@ int employeeNumber = 0;
 int hourlySalary = 0;
 int weeklyTime = 0;
 
-int main()
+int amain()
 {
 
 	welcome();

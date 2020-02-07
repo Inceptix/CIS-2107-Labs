@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="atm.cpp" />
     <ClCompile Include="paycheck.c" />
     <ClCompile Include="revenue.c" />
   </ItemGroup>

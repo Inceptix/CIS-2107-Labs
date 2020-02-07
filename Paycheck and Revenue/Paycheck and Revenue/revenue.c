@@ -22,7 +22,7 @@ int nPrice;
 int nQuantity;
 
 
-int main()
+int bmain()
 {
     fWelcome();
     fItemInputs();
