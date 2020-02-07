@@ -9,12 +9,13 @@ worked overtime (more than 40 hours) and multiply their hourly rate by x1.5 for 
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #define PIN 3014
 #define WITHDRAWAL_LIMIT 1000
 #define DEPOSIT_LIMIT 10000
 
-void welcome();
-void goodbye();
+void ATMwelcome();
+void ATMgoodbye();
 
 int dUserPin;
 int dAttempts;
@@ -36,8 +37,10 @@ void cashDeposit(int x);
 
 int main()
 {
-	welcome();
-	
+	ATMwelcome();
+	int dWithdrawalAmount;
+	int dDepositAmount;
+
 	bool bIsMenu = true;
 	while (bIsMenu)
 	{
@@ -55,21 +58,21 @@ int main()
 			break;
 
 		case 2: 
-			int dWithdrawalAmount;
+			
 			printf("Please enter the amount that you would like to withdraw in multiplies of 20\n");
 			scanf("%d", &dWithdrawalAmount);
 			cashWithdrawal(dWithdrawalAmount);
 			break;
 
 		case 3:
-			int dDepositAmount;
+			
 			printf("Please enter the amount that you would like to deposit. Coins not accepted.\n");
 			scanf("%d", &dDepositAmount);
 			cashDeposit(dDepositAmount);
 			break;
 
 		case 4:
-			goodbye();
+			ATMgoodbye();
 			exit(0);
 		default:
 			exit(0);
@@ -170,7 +173,7 @@ void cashDeposit(int x)
 		
 }
 
-void goodbye()
+void ATMgoodbye()
 {
 	printf("The total amount of transactions today is %d.\nThank you for using Temple ATM.\nGoodbye.\n", dTranscation);
 	return;
@@ -182,7 +185,7 @@ void displayMenu()
 	return;
 }
 
-void welcome()
+void ATMwelcome()
 {
 	printf("Welcome to Temple ATM. Please enter your PIN: ");
 	scanf("%d", &dUserPin);
@@ -197,7 +200,7 @@ void welcome()
 		}
 
 		printf("Incorrect PIN. Please try again. %d out of 3 attempts.\n", dAttempts);
-		welcome();
+		ATMwelcome();
 	}
 
 	if (dUserPin == PIN)

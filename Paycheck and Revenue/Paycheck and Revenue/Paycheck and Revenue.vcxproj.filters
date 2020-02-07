@@ -21,7 +21,7 @@
     <ClCompile Include="revenue.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="atm.cpp">
+    <ClCompile Include="atm.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
