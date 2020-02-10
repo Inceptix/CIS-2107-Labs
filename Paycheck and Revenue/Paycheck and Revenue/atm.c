@@ -1,11 +1,11 @@
 /*
 Marinos Rrapaj
 February 1, 2020
-CIS2107_Lab02_Paycheck_and_Revenue
+CIS2107_Lab03_ATM_Machine
 
-Statement: To write a program in C called paycheck that calculated the paycheck for a Temple employee
-based on their weekly hours and the rate per hour. The goal is also to figure out if the employee
-worked overtime (more than 40 hours) and multiply their hourly rate by x1.5 for any hours above 40.
+Statement: To write a program in C for making a fully function ATM Machine by using functions instead of having everything in the main function.
+Some important aspects of the program is to have security checks for corrent PIN usage and locking out the user if they input the incorrect PIN.
+Also inputting imporper data will log the user out after three attempts.
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,15 +37,18 @@ void cashDeposit(int x);
 
 int main()
 {
+	//show welcome message
 	ATMwelcome();
 	int dWithdrawalAmount;
 	int dDepositAmount;
 
+	//use this to keep the main menu running
 	bool bIsMenu = true;
 	while (bIsMenu)
 	{
 		int dMenu;
 
+		//display the menu inside the while loop so that the user can see it everytime
 		displayMenu();
 
 		scanf("%d", &dMenu);
@@ -84,6 +87,7 @@ int main()
 void cashWithdrawal(int x)
 {
 	
+	//check whether the limit as been reacher or if the transaction will surpass the limit
 	if (dCashWithdrawalTotal > WITHDRAWAL_LIMIT || (x + dCashWithdrawalTotal > WITHDRAWAL_LIMIT))
 	{
 		printf("Withdrawal value exceeds limit. $%d left to withdraw\n", (WITHDRAWAL_LIMIT - dCashWithdrawalTotal));
@@ -91,6 +95,7 @@ void cashWithdrawal(int x)
 		return;
 	}
 
+	//check if multiple of 20
 	if (x <= 0 || (x % 20 != 0))
 	{
 		printf("Invalid withdrawal amount. Try again.\n");
@@ -129,6 +134,7 @@ void cashWithdrawal(int x)
 
 void cashDeposit(int x)
 {
+	//check if limit has been reached or if it will be reacher with the transaction
 	if (dCashDepositTotal > DEPOSIT_LIMIT || (x + dCashDepositTotal > DEPOSIT_LIMIT))
 	{
 		printf("Deposit value exceeds limit. $%d left to deposit\n", (DEPOSIT_LIMIT - dCashDepositTotal));
@@ -136,6 +142,7 @@ void cashDeposit(int x)
 		return;
 	}
 
+	//check that deposit is larger than 0
 	if (x <= 0)
 	{
 		printf("Invalid deposit amount. Try again.\n");
@@ -190,8 +197,10 @@ void ATMwelcome()
 	printf("Welcome to Temple ATM. Please enter your PIN: ");
 	scanf("%d", &dUserPin);
 
+	//check if the PIN is correct
 	if (dUserPin != PIN && dAttempts < 3)
 	{
+		//once all the attempts have been used the user is locked out.
 		dAttempts++;
 		if (dAttempts >= 3)
 		{
@@ -203,6 +212,7 @@ void ATMwelcome()
 		ATMwelcome();
 	}
 
+	//if PIN is correct then move on to the main menu
 	if (dUserPin == PIN)
 		return;
 
