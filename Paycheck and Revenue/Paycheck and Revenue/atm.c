@@ -35,7 +35,7 @@ void cashWithdrawal(int x);
 void cashDeposit(int x);
 
 
-int main()
+int cmain()
 {
 	ATMwelcome();
 	int dWithdrawalAmount;

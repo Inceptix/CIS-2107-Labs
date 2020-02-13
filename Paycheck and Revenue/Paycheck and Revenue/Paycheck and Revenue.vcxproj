@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Arrays1DDemo.c" />
     <ClCompile Include="atm.c" />
     <ClCompile Include="paycheck.c" />
     <ClCompile Include="revenue.c" />
