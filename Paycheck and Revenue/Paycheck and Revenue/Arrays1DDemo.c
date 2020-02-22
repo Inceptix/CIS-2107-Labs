@@ -30,7 +30,7 @@ void findSequence(int[], int y, int z);
 
 void printArray(int* x);
 
-int main()
+int dmain()
 {
 	srand((unsigned)time(NULL));
 	int myArray[ARRAY_SIZE] = { 0 };

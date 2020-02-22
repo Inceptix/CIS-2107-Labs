@@ -351,3 +351,16 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Created by https://www.gitignore.io/api/codeblocks
+# Edit at https://www.gitignore.io/?templates=codeblocks
+
+### CodeBlocks ###
+# specific to CodeBlocks IDE
+*.layout
+*.depend
+# generated directories
+bin/
+obj/
+
+# End of https://www.gitignore.io/api/codeblocks
