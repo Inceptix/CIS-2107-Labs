@@ -1,16 +1,18 @@
 /*
 Marinos Rrapaj
-February 16, 2020
-CIS2107_Lab03_Processing1DArrays
+February 23, 2020
+CIS2107_Lab05. 2D Arrays and Array of Pointers to Functions
 
-Statement: To write a program in C called Arrays1DDemo.c and implement different functionality to show
-proficiency in working with arrays. Some of the functions include being able to find a certain value
-within a range provided, being able to reverse an array, and also finding a given sequence of numbers.
+Statement: To write a program in C called Arrays2D.c and implement different functionality to show
+proficiency in working with 2-Dimensional arrays. Some of the functions include being able to find a max
+and min value in the array, being able to sum the columns, determine whether the array is a square and
+display its contents.
 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include <limits.h>
 
 
 int arrayMax(int m, int n, int arr[][n]);
@@ -24,21 +26,24 @@ int main()
 
 	int m , n;
 
-	printf("Let's create a 2Dim array!\n");
+	printf("Let's create a 2Dim array!\n\n");
 
-	printf("How many rows?\n");
+	printf("\tHow many rows? ");
 	scanf("%d", &m);
 
-	printf("How many columns?\n");
+	printf("\tHow many columns? ");
 	scanf("%d", &n);
+
+	puts("");
 
 	int arr[m][n];
 
+    //read values for array from user
 	for(int rows = 0; rows < m; rows++)
     {
         for(int columns = 0; columns < n; columns++)
         {
-            printf("enter [%d][%d]: ", rows, columns);
+            printf("\tenter [%d][%d]: ", rows, columns);
             scanf("%d", &arr[rows][columns]);
         }
     }
@@ -62,6 +67,7 @@ int arrayMax(int m, int n, int arr[][n])
 		{
 			if (max < arr[i][j])
 			{
+			    //change max if the number is bigger
 				max = arr[i][j];
 			}
 		}
@@ -76,8 +82,11 @@ void rowSum(int m, int n, int arr[][n])
         int sum = 0;
         for(int columns = 0; columns < n; columns++)
         {
+            //by incrementing only columns at first we are able to sum the values
+            //of one row into variable sum
             sum = sum + arr[rows][columns];
         }
+        //display the row correctly by offsetting
         printf("Sum of row %d = %d\n", rows+1, sum);
     }
 }
@@ -88,12 +97,14 @@ void columnSum(int m, int n, int arr[][n])
 
     if(m <= 1)
     {
+        //check if there is only 1 0 rows
         for(int i = 0; i < n; i++)
         {
             printf("Sum of column %d = %d\n", i+1, arr[0][i]);
         }
     }
 
+    //check the amount of columns
     else if(n <=1)
     {
         int sum = 0;
@@ -105,6 +116,7 @@ void columnSum(int m, int n, int arr[][n])
         printf("Sum of column 1 = %d\n", sum);
     }
 
+
     else
     {
         for (rows = 0; rows < n; rows++)
@@ -112,6 +124,8 @@ void columnSum(int m, int n, int arr[][n])
             int sum = 0;
             for(columns = 0; columns < m; columns++)
             {
+                //by incrementing the first argument we are able to sum all the vertical
+                //contents which are the rows
                 sum = sum + arr[columns][rows];
             }
             printf("Sum of column %d = %d\n", rows+1, sum);
@@ -142,7 +156,7 @@ void displayOutputs(int m, int n, int arr[][n])
             printf("%d", arr[i][j]);
             if(j+1 < n)
             {
-                printf(",");
+                printf(", ");
             }
         }
         printf("]\n");

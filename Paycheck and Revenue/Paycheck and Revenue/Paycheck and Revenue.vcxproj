@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Arrays1DDemo.c" />
-    <ClCompile Include="Arrays2D.c" />
     <ClCompile Include="atm.c" />
     <ClCompile Include="paycheck.c" />
     <ClCompile Include="revenue.c" />

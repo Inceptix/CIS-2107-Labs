@@ -27,8 +27,5 @@
     <ClCompile Include="Arrays1DDemo.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Arrays2D.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

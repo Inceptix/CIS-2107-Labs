@@ -35,7 +35,7 @@ void cashWithdrawal(int x);
 void cashDeposit(int x);
 
 
-int cmain()
+int main()
 {
 	//show welcome message
 	ATMwelcome();
