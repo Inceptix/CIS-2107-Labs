@@ -21,7 +21,7 @@ void columnSum(int m, int n, int arr[][n]);
 void isSquare(int m, int n);
 void displayOutputs(int m, int n, int arr[][n]);
 
-int main()
+int bmain()
 {
 
 	int m , n;

@@ -25,7 +25,7 @@ void    displayMenu();
 
 void (*processGrades) (const int[][EXAMS], size_t, size_t);
 
-int main()
+int amain()
 {
     const int studentGrades[STUDENTS][EXAMS] =
     {
