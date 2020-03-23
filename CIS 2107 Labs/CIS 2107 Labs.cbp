@@ -37,6 +37,9 @@
 		<Unit filename="ArraysofPointers.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="Manual.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="Race.c">
 			<Option compilerVar="CC" />
 		</Unit>
