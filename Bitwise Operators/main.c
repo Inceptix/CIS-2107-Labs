@@ -204,19 +204,19 @@ unsigned int reverse_half_nybbles(unsigned int i)
 int is_negative(int x)
 {
 
-    int toreturn = 0;
+    int result = 0;
     x >>= sizeof(int)*4;
     if (x & 01){
-        toreturn = 1;
+        result = 1;
     }
-    return toreturn;
+    return result;
 }
 
 /* returns 1 if x's binary representation
  has an odd number of 1s or 0 otherwise */
 int has_odd(unsigned int x)
 {
-    int toreturn = 0;
+    int result = 0;
     int ones = 0;
     while (x != 0){
         if (x & 01){
@@ -225,9 +225,9 @@ int has_odd(unsigned int x)
         x >>= 1;
     }
     if (ones & 01){
-        toreturn = 1;
+        result = 1;
     }
-    return toreturn;
+    return result;
 
 }
 
@@ -237,24 +237,24 @@ int has_odd(unsigned int x)
 unsigned int make_odd(unsigned int x)
 {
 
-    int toreturn = 0;
+    int result = 0;
     int temp = 1;
     int toShift = sizeof(int);
 
     if (has_odd(x)){
-        toreturn = x;
+        result = x;
     }
     else{
         if (is_negative(x)){
             temp <<= toShift;
-            toreturn = x | temp;
+            result = x | temp;
             }
         if (!is_negative(x)){
             temp <<= toShift-1;
-            toreturn = x ^ temp;
+            result = x ^ temp;
         }
     }
-    return toreturn;
+    return result;
 }
 
 
@@ -263,7 +263,7 @@ weatherlog_t pack_log_entry(unsigned int year, unsigned int month, unsigned int 
                             unsigned int zip, int high_temp, int low_temp,
                             unsigned int precip, unsigned int avg_wind_speed)
                             {
-     uint64_t toreturn;
+     uint64_t result;
     uint64_t tempyear = sub(year, 2000);
     uint64_t tempmonth = month;
     uint64_t tempday = day;
@@ -280,9 +280,9 @@ weatherlog_t pack_log_entry(unsigned int year, unsigned int month, unsigned int 
     templowtemp <<= 17;
     tempprecip <<= 7;
 
-    toreturn = tempyear ^ tempmonth ^ tempday ^ tempzip ^ temphightemp ^ templowtemp ^ tempprecip ^ tempavgwindspeed;
+    result = tempyear ^ tempmonth ^ tempday ^ tempzip ^ temphightemp ^ templowtemp ^ tempprecip ^ tempavgwindspeed;
 
-    return toreturn;
+    return result;
 }
 
 unsigned int get_year(weatherlog_t entry)
